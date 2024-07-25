@@ -18,9 +18,16 @@
             for (let mutation of mutationsList) {
                 if (mutation.addedNodes.length) {
                     const articles = document.querySelectorAll("article");
-                    Array.from(articles)
+                    
+                    // Array.from(articles)
+                    //     .forEach((article) => {
+                    //     setViewQuotedTweetsIcon(article);``
+                    // });
+
+                    // ステータス画面([tabindex='-1'])のツイートは除外する
+                    Array.from(articles).filter(article => article.getAttribute('tabindex') === '0')
                         .forEach((article) => {
-                        setViewQuotedTweetsIcon(article);
+                        setViewQuotedTweetsIcon(article);``
                     });
                 }
             }
